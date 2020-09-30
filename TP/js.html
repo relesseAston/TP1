@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS</title>
+    <style>
+        article { width: 50%; display: none; }
+        h1 { cursor: pointer;}
+    </style>
+</head>
+<body>
+    <h1>JS</h1>
+    <article>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos amet nihil nam modi iste est. Quibusdam facere eius commodi iure nulla provident nostrum reiciendis natus rerum mollitia, illum expedita perferendis?</article>
+    <h1>jQuery</h1>
+    <article>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias natus consequuntur vero assumenda veniam obcaecati vitae, nulla facere? Consequatur officiis ducimus cum nulla voluptate facere, natus beatae pariatur blanditiis nostrum.</article>
+    <input id="txtUsername" type="text" placeholder="username"/>
+    <button id="btnTest">Test</button>
+
+    <script>
+        console.log("JS");
+        var h1 = document.getElementsByTagName("h1");
+        h1[1].innerHTML = "JQ";
+
+        var txtUsername = document.getElementById('txtUsername');
+        var btnTest = document.getElementById('btnTest');
+        btnTest.disabled = true;
+        txtUsername.addEventListener('keyup', () => {
+            if(txtUsername.value.length < 3) {
+                btnTest.disabled = true;
+            }
+            else {
+                btnTest.disabled = false;
+            }
+        });
+
+        for (var i=0; i<h1.length; i++) {
+            h1[i].addEventListener('click', (e) => {
+                var display = e.target.nextElementSibling.style.display;
+                //cible l'article suivant
+                if(!display || display == "none") {
+                    e.target.nextElementSibling.style.display =  "block";
+                }
+
+                else {
+                    e.target.nextElementSibling.style.display =  "none";
+                }    
+            });
+        }
+
+    </script>
+</body>
+</html>

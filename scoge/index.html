@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>scoge</title>
+    <style>
+        
+        article {
+            cursor: pointer;
+        }
+
+        #pavee_num {
+            display: none;
+        }
+
+        .inputwrapper { 
+            margin: 2em; 
+            line-height: 0.61em;   
+            vertical-align: middle; 
+        }
+
+	    .numberinput { 
+            display: inline-block; 
+            height: 15px; 
+            width: 15px; 
+            border-radius: 50px; 
+            border: 1px solid #FFFFFF; 
+            margin-right: 2%; 
+            margin-left: 2%; 
+            font-size: 2em; 
+        }
+
+        container {
+            width: 300px;
+            border: 1px solid black;
+            display: inline-block;
+        }
+
+        block {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            margin: 5px;
+            background: gray;
+            text-align: center;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <input id="num_client" type="text" placeholder="entrer votre n° client" maxlength="8">
+    <br/>
+    <label class="switch">
+        <input type="checkbox">
+        <span class="slider round"></span>
+    </label>
+    <span>se souvenir de moi <button id="info" type="button">info</button></span>
+    <artcile id="article" style="display: none;">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam, quasi, earum doloremque natus incidunt molestias facilis nemo officia iusto iste, aliquam minima molestiae quod praesentium ex ipsum error illum eveniet!</artcile>
+    <br/>
+    <button id="btn" type="button">Valider</button>
+
+    <div id="pavee_num">
+        <br/>
+        <container>
+            <div class="inputwrapper">
+                <span class="numberinput">_</span>
+                <span class="numberinput">_</span>
+                <span class="numberinput">_</span>
+                <span class="numberinput">_</span>
+                <span class="numberinput">_</span>
+                <span class="numberinput">_</span>
+                <span><button id="btn2" type="button" onclick="remove();">X</button></span>
+            </div>
+            <block>0</block>
+            <block>1</block>
+            <block>2</block>
+            <block>3</block>
+            <block>4</block>
+            <block>5</block>
+            <block>6</block>
+            <block>7</block>
+            <block>8</block>
+            <block>9</block>
+        </container>
+    </div>
+    <button id="btn3" type="button" style="display: none;">Valider</button>
+</body>
+
+<script>
+    console.log("test");
+    var btn = document.getElementById("btn");
+    btn.disabled = true;
+    var btn3 = document.getElementById("btn3");
+    var num_client = document.getElementById("num_client");
+    var pavee_num = document.getElementById("pavee_num");
+    var info = document.getElementById("info");
+    var article = document.getElementById("article");
+    info.addEventListener("click", () => {
+        article.style.display = "block";
+    });
+
+    article.addEventListener("click", () => {
+        if(article.style.display == "block") article.style.display = "none";
+    })
+
+
+
+    num_client.addEventListener('keyup', () => {
+        if (num_client.value.length < 8) { 
+            console.log(typeof(code));
+            btn.disabled = true; 
+        }
+        else { 
+            btn.disabled = false; 
+        }
+    });
+    btn.addEventListener("click", () => {
+        pavee_num.style.display = "block";
+        btn.style.display = "none";
+        btn3.style.display = "block";
+
+    });
+    var numberinput = document.getElementsByClassName("numberinput");
+    var pavee = document.getElementsByTagName("block");
+    for (var i=0; i < pavee.length; i++) {
+        pavee[i].addEventListener('click', (e) => {
+            var target = e.target;
+            var number =  target.innerHTML;
+            console.log(number);
+            for(var y=0; y < numberinput.length; y++){
+                var value = numberinput[y].innerHTML;
+                if(value == "_") {
+                    return numberinput[y].innerHTML = number;
+                }
+                y + 1;    
+            }
+        });
+    }
+
+    var btn2 = document.getElementById("btn2").onclick = remove;
+
+    function remove () {
+        for (var i=0; i < numberinput.length; i++){
+            numberinput[i].innerHTML = "_";
+        }
+    }
+    
+</script>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS</title>
+    <style>
+        article { width: 50%; display: none; }
+        h1 { cursor: pointer;}
+    </style>
+</head>
+<body>
+    <h1>JS</h1>
+    <article>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos amet nihil nam modi iste est. Quibusdam facere eius commodi iure nulla provident nostrum reiciendis natus rerum mollitia, illum expedita perferendis?</article>
+    <h1>jQuery</h1>
+    <article>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias natus consequuntur vero assumenda veniam obcaecati vitae, nulla facere? Consequatur officiis ducimus cum nulla voluptate facere, natus beatae pariatur blanditiis nostrum.</article>
+    <input id="txtUsername" type="text" placeholder="username"/>
+    <button id="btnTest">Test</button>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>    
+        //console.log('JQ');
+        var h1 = $('h1');
+        h1.eq(1).text('JQ'); // == h1.first()
+
+        var txtUsername = $('#txtUsername');
+        var btnTest = $('#btnTest');
+
+        btnTest.attr('disabled', true);
+
+        txtUsername.keyup(() => {
+            if(txtUsername.val().length < 3) {
+                btnTest.attr('disabled', true);
+            }
+            else {
+                btnTest.attr('disabled', false);
+            }
+        });
+
+        h1.click((e) => {
+            var target = $(e.target);
+            target.next().toggle()
+        });
+    </script>
