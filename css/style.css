@@ -1,0 +1,18 @@
+/* Feuille de style globale */
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #ccc;
+}
+
+li {
+    color:red;
+}
+
+.imgA {
+    border:2px purple solid
+}
+
+.imgB img {
+    display: block;
+    margin-bottom: 4px;
+}

@@ -1,0 +1,11 @@
+@media screen and (max-width: 500px) {
+    #bg {
+        background-color: purple;
+    }
+}
+
+/*@media screen and (min-width: 1000px) {
+    #bg {
+        display: none;
+    }
+} */
