@@ -1,0 +1,86 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 10pt;
+}
+
+h2 {
+    font-size: 1.1rem;
+}
+
+
+#photoArea img {
+    width: 500px
+}
+
+#photoArea #thumbs img {
+    width: 75px;
+    
+}
+
+#thumbs {
+    cursor: pointer;
+}
+
+#thumbs :hover {
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition:.5s;
+    box-shadow: 10px 10px 5px #888888;
+}
+
+#photoArea, #settingsArea {
+    float: left;
+    padding: 4px
+}
+
+#badges img {
+    width: 60px
+}
+
+#badgesSelector input {
+    margin: 0 24px
+}
+section {
+    margin: 40px 0
+}
+
+.flock {
+    padding: 8px;
+    border: 1px #aaa solid;
+    text-transform: uppercase;
+    font-weight: bold;
+
+}
+
+.flock.selected {
+    color: #ff2850;
+    border-color: #ff2850;
+}
+
+.num {
+    width: 60px;
+    margin: 5px;
+}
+
+#photoArea #displayNum{
+    color:black;
+    font-size: 90px;
+    z-index: 1;
+    position: absolute;
+    font-family: Georgia;
+    margin: 0 auto;
+    margin-left: 200px;
+    top: 35%;
+}
+
+#photoArea #displayName{
+    color:black;
+    font-size: 40px;
+    position: absolute;
+    font-family: Georgia;
+    margin: 0 auto;
+    margin-left: 170px;
+    top: 25%;
+}
